@@ -8,24 +8,6 @@ from bs4 import BeautifulSoup
 from datetime import time, datetime, date, timedelta
 import urllib
 
-# 昨日日期字串
-yesterday = datetime.now() - timedelta(days=1)
-f_date = yesterday.strftime("%m/%d").lstrip('0')
-
-# 定義各值列表
-titleList=[]
-pageLinkList=[]
-authorList=[]
-articleTimeList=[]
-IPList=[]
-imgList=[]
-pushList=[]
-dissList=[]
-crawlerTimeList=[]
-
-Pageurl = 'https://www.ptt.cc/bbs/StupidClown/index.html'
-ptt = 'https://www.ptt.cc'
-
 # 讀取每頁日期符合昨日的文章
 def all_page_articles(url, date):
     html_P = requests.get(url).text
@@ -131,6 +113,24 @@ def save_img (imgUrl, imgTitle) :
 
 
 if __name__ == '__main__':
+
+    # 昨日日期字串
+    yesterday = datetime.now() - timedelta(days=1)
+    f_date = yesterday.strftime("%m/%d").lstrip('0')
+
+    # 定義各值列表
+    titleList=[]
+    pageLinkList=[]
+    authorList=[]
+    articleTimeList=[]
+    IPList=[]
+    imgList=[]
+    pushList=[]
+    dissList=[]
+    crawlerTimeList=[]
+
+    Pageurl = 'https://www.ptt.cc/bbs/StupidClown/index.html'
+    ptt = 'https://www.ptt.cc'
 
     # 取前五頁中昨日的文章總列表
     count = 0
